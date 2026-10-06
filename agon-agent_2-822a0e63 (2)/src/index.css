@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+@theme {
+  /* Dark Navy System */
+  --color-navy-950: #080D1B;
+  --color-navy-900: #111827;
+  --color-navy-800: #1F2937;
+  --color-navy-700: #374151;
+  --color-navy-600: #4B5563;
+
+  /* Emerald Brand System */
+  --color-brand-700: #0F7B36;
+  --color-brand-600: #18B653;
+  --color-brand-500: #45E27A;
+  --color-brand-400: #6EE79A;
+  --color-brand-300: #93F0B5;
+  --color-brand-200: #BBF7D0;
+  --color-brand-100: #0D3D1F;
+  --color-brand-50: #072614;
+
+  /* Slate Text System */
+  --color-snow: #F8FAFC;
+  --color-silver: #D1D5DB;
+  --color-muted: #6B7280;
+
+  /* Red for destructive */
+  --color-danger-600: #DC2626;
+  --color-danger-500: #EF4444;
+  --color-danger-100: #7F1D1D;
+
+  /* Amber for warnings */
+  --color-warn-600: #D97706;
+  --color-warn-500: #F59E0B;
+  --color-warn-100: #78350F;
+
+  /* Blue for info */
+  --color-info-600: #2563EB;
+  --color-info-500: #3B82F6;
+  --color-info-100: #1E3A5F;
+
+  /* Purple */
+  --color-accent-600: #7C3AED;
+  --color-accent-500: #8B5CF6;
+  --color-accent-100: #4C1D95;
+
+  /* Typography */
+  --font-display: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #080D1B;
+  color: #D1D5DB;
+  font-family: var(--font-display);
+}
+
+/* Premium scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1F2937;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #374151;
+}
+
+/* Hide scrollbar for horizontal scroll areas */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Selection color — emerald tint */
+::selection {
+  background: rgba(24, 182, 83, 0.25);
+  color: #F8FAFC;
+}
+
+/* Focus ring utility — emerald */
+*:focus-visible {
+  outline: 2px solid #18B653;
+  outline-offset: 2px;
+}
+
+/* Smooth page transitions */
+main {
+  animation: pageIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Table row hover glow — emerald left accent */
+.table-row-glow:hover {
+  box-shadow: inset 3px 0 0 #18B653;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(17, 24, 39, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(31, 41, 55, 0.8);
+}
+
+/* Premium button press effect */
+.btn-press {
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+.btn-press:active {
+  transform: scale(0.97);
+}
+
+/* Emerald glow for primary CTAs */
+.glow-brand {
+  box-shadow: 0 0 20px rgba(24, 182, 83, 0.15), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.glow-brand:hover {
+  box-shadow: 0 0 30px rgba(24, 182, 83, 0.25), 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Skeleton shimmer for loading */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #1F2937 25%, #374151 50%, #1F2937 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+/* Number tabular figures for countdowns */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle card hover lift */
+.card-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Emerald accent line on top of cards */
+.accent-top {
+  position: relative;
+}
+.accent-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #18B653, #45E27A);
+  border-radius: 2px 2px 0 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.accent-top:hover::before {
+  opacity: 1;
+}
